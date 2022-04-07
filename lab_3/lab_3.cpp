@@ -55,7 +55,7 @@ private:
 	float Y;
 	Point P;
 	float arrow[4];
-	void setArrow();
+	void Arrow();
 public:
 	Vector();
 	Vector(float aX, float aY, Point aP);
@@ -78,7 +78,7 @@ Vector Vector::operator*(float n) {
 	return Vector(n * X, n * Y, this->P);
 }
 
-void Vector::setArrow() {
+void Vector::Arrow() {
 	float x = P.getX() + X;
 	float y = P.getY() + Y;
 	double a = acos(X / (sqrt(X * X + Y * Y)));
@@ -94,14 +94,14 @@ void Vector::setArrow() {
 Vector::Vector() {
 	X = 0;
 	Y = 0;
-	setArrow();
+	Arrow();
 }
 
 Vector::Vector(float aX, float aY, Point aP) {
 	X = aX;
 	Y = aY;
 	P = aP;
-	setArrow();
+	Arrow();
 }
 
 float Vector::getX() const {
@@ -118,17 +118,17 @@ Point Vector::getP() const {
 
 void Vector::setX(float aX) {
 	X = aX;
-	setArrow();
+	Arrow();
 }
 
 void Vector::setY(float aY) {
 	Y = aY;
-	setArrow();
+	Arrow();
 }
 
 void Vector::setP(Point aP) {
 	P = aP;
-	setArrow();
+	Arrow();
 }
 
 void Vector::draw() const {
@@ -152,6 +152,7 @@ float j = 0;
 
 void myDisplay() {
 	glClear(GL_COLOR_BUFFER_BIT);
+
 	Point Pani = { -125, -125 };
 	Vector hani = { 0, 100, Pani };
 	float r = 100;
@@ -161,8 +162,6 @@ void myDisplay() {
 	hani.setP({Pani.getX() + j, Pani.getY() + i});
 	hani = hani * k;
 	hani.draw();
-
-
 
 
 	Point P1 = { 100, -125 };
